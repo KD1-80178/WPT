@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <h1 style="text-align: center; background-color:darkseagreen; 
+    color: white;height: 100px;margin: 30px;margin-bottom: 20px; 
+    padding: 15px;text-decoration: underline;margin: 20px auto; 
+    padding: 20px; padding: 20px; width: 90%; border-radius: 8px;">
+    Registration Form</h1>
+    <br>
+    <center>
+    <div style="background-color: antiquewhite; margin: 20px;  
+    box-shadow: 0 0 10px black; margin: 20px auto; padding: 20px; 
+    padding: 20px; width: 55%; border-radius: 8px;">
+        <form action="server.jsp" method="post">
+           <center>
+            <table>
+                <tr>
+                    <td style="text-align: left;">Name: </td>
+                    <td style="text-align: left;">
+                        <input type="text" id="myName" required placeholder="Enter Name">*
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Date:</td>
+                    <td style="text-align: left;">
+                        <input type="date" id="myDate" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Email:</td>
+                    <td style="text-align: left;">
+                        <input type="email" id="myEmail" required placeholder="abc@gmail.com">*
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Password:</td>
+                    <td style="text-align: left;">
+                        <input type="password" id="myPassword" required placeholder="***********">*
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Address: </td>
+                    <td style="text-align: left;">
+                        <select id="myState">
+                            <option>Maharashtra</option>
+                            <option>Rajsthan</option>
+                            <option>Karnataka</option>
+                            <option>Himachal Pradesh</option>
+                            <option>MadhyaPradesh</option>
+                            <option>Gujrat</option>
+                        </select>
+
+                        <select id="myDistrict">
+                            <option>Pune</option>
+                            <option>Sangli</option>
+                            <option>Kolhapur</option>
+                            <option>Belgaum</option>
+                        </select>
+                        
+                        <select id="myCity">
+                            <option>Pune</option>
+                            <option>Miraj</option>
+                            <option>Bengluru</option>
+                            <option>Ashta</option>
+                            <option>Shirol</option>
+                            <option>Jaysingpur</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Gender: *</td>
+                    <td style="text-align: left;">
+                        <input type="radio" value="1" name="Gender">Male
+                        <input type="radio" value="2" name="Gender">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Upload Photo: </td>
+                    <td style="text-align: left;">
+                        <input type="file" accept="image/*">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"></td>
+                    <td style="text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">Select your Course:</td>
+                    <td style="text-align: left;">
+                        <select  id="myCourse">
+                            <option>PG-DAC</option>
+                            <option>PG-DBDA</option>
+                            <option>PG-DMC</option>
+                            <option>PG-DESD</option>
+                            <option>PG-DITISS</option>
+                            <option>OTHER</option>
+                        </select>*
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align: center;" ><br>
+                        <input type="submit" value="Register" class="ButtonStyle" style="background-color: cadetblue; color: rgb(228, 228, 237);" />
+                        <input type="submit" value="Clear" class="ButtonStyle" style="background-color: cadetblue; color: rgb(228, 228, 237);" />
+                    </td>
+                </tr>
+            </table>
+           </center>
+        </form>
+    </div>
+    </center>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('form').submit(function(event){
+                var isValid = true;
+
+                $('input[type="text"], input[type="date"], input[type="email"], input[type="password"], select, input[type="file"], input[type="radio"]').each(function(){
+                    if(!$(this).val()){
+                        $(this).addClass('invalid');
+                        isValid = false;
+                    } else {
+                        $(this).removeClass('invalid');
+                    }
+                });
+
+                if(!isValid){
+                    event.preventDefault();
+                    alert('Please fill in all required fields.');
+                }
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>
